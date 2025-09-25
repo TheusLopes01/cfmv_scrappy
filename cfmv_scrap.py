@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import Select
+import time
 
 
 # =========================
@@ -33,3 +34,8 @@ inputForm = navegador.find_element(By.NAME, 'filtro_texto').send_keys("SP0039953
 
 SearchButton = navegador.find_element(By.CSS_SELECTOR, "input[class= 'btn-info btn-padrao col-5'][value= 'Filtrar']")
 SearchButton.click()
+
+time.sleep(2)
+result = navegador.find_element(By.ID, "relatorio")
+
+print(result.text)
